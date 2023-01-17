@@ -14,7 +14,7 @@ t = turtle.Turtle()
 t.shape("turtle")
 t.color("white")
 t.speed(10)
-t.width(3)
+t.pensize(3)
 
 # Disable turtle animations
 # turtle.tracer(5)
@@ -31,16 +31,16 @@ def create_triangle(deviation_angle=30, triangle_angle=120, distance=window_heig
     t.end_fill()
     t.left(deviation_angle)
 
-def create_axis(data_points=6):
-    for i in range(int(data_points + 1 )):
-        if i == int(data_points + 1):
-            break
-        else:
-            t.forward(axis_length/(data_points + 1 ))
+def create_axis(data_points=7):
+    for i in range(int(data_points)):
+        if i in range(int(data_points -1)):
+            t.forward(axis_length/(data_points))
             t.right(90)
             t.forward(axis_length/40)
             t.back(axis_length/40)
             t.left(90)
+        else:
+            t.forward(axis_length/(data_points))
 
 # Set turtle starting position
 t.back(origin_x)
@@ -57,16 +57,7 @@ create_axis(data_points_input)
 ###
 # Create x-axis triangle. Requires deviation_angle=210.
 create_triangle(210)
-t.back(200)
-# for d in range(int(data_points_input + 1)):
-#     distance_back = axis_length / (data_points_input + 1)
-#     if d==(data_points_input + 1):
-#         break
-#     t.back(distance_back)
-#     t.right(90)
-#     t.forward(axis_length/40)
-#     t.back(axis_length/40)
-#     t.left(90)
+t.back(900)
     
 
 # Show the drawing
